@@ -9,6 +9,7 @@ Debian:
   policyd_spf_pkg: postfix-policyd-spf-python
   pcre_pkg: postfix-pcre
   mysql_pkg: postfix-mysql
+  pgsql_pkg: postfix-pgsql
   daemon_directory: /usr/lib/postfix/sbin
 
 FreeBSD:

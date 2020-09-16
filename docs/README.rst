@@ -70,6 +70,11 @@ Installs and starts Postgrey service
 
 Installs postfix mysql package ( Debian only)
 
+``postfix.pgsql``
+^^^^^^^^^^^^^^^^^^^^^^
+
+Installs postfix postgresql package ( Debian only)
+
 ``postfix.pcre``
 ^^^^^^^^^^^^^^^^
 

@@ -4,6 +4,14 @@
 {{ key }} = {{ value }}
 {%- endfor %}
 query = SELECT {{ config.select_field|default('1') }} FROM {{ config.table|default('virtual_domains') }} WHERE {{ config.where_field|default('name') }}='%s'
+
+{%- elif 'pgsql' in salt['pillar.get']('postfix:config:virtual_mailbox_domains', '') %}
+{%- set config = salt['pillar.get']('postfix:pgsql:virtual_mailbox_domains', {}) -%}
+{%- for key,value in salt['pillar.get']('postfix:vmail').items() %}
+{{ key }} = {{ value }}
+{%- endfor %}
+query = SELECT {{ config.select_field|default('1') }} FROM {{ config.table|default('virtual_domains') }} WHERE {{ config.where_field|default('name') }}='%s'
+
 {%- else %}
 {% set config = salt['pillar.get']('postfix:vmail', {}) -%}
 {% macro set_parameter(parameter, default=None) -%}
